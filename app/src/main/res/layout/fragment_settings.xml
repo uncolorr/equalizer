@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorSettingsBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageViewAvatar"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_gravity="center"
+                    android:src="@color/colorSettingsBackground"/>
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp"
+                    tools:text="Влад Сапожников"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/buttonClearCache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:textColor="@color/colorMain"
+                android:text="@string/label_clear_cache"
+                android:layout_marginBottom="1px"
+                android:textAllCaps="false"
+                android:layout_gravity="center"/>
+
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:textColor="@color/colorMain"
+                android:text="@string/label_exit"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:layout_marginBottom="24dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

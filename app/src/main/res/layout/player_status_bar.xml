@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/notificationbg"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/white"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/status_bar_album_art"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_margin="8dp"
+        android:layout_gravity="center"
+        android:src="@drawable/album_default"
+        android:scaleType="centerCrop" />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/status_bar_track_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ellipsize="marquee"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:fadingEdge="horizontal"
+                tools:text="Track name"
+                android:focusable="true"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/status_bar_artist_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ellipsize="marquee"
+                android:textColor="@android:color/black"
+                android:fadingEdge="horizontal"
+                android:singleLine="true"
+                tools:text="Artist name" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="?android:listDivider"
+            android:dividerPadding="12dp"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="start"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+
+            <ImageButton
+                android:id="@+id/status_bar_prev"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="24dp"
+                android:background="?android:selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/previous" />
+
+            <ImageButton
+                android:id="@+id/status_bar_play"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="24dp"
+                android:background="?android:selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pause" />
+
+            <ImageButton
+                android:id="@+id/status_bar_next"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_weight="1.0"
+                android:background="?android:selectableItemBackground"
+                android:scaleType="fitCenter"
+                android:src="@drawable/next" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/status_bar_close"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:padding="10dp"
+        android:scaleType="centerCrop"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_close" />
+
+
+
+</LinearLayout>

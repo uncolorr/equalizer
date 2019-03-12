@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextSearch"
+        android:hint="Поиск"
+        android:layout_width="match_parent"
+        android:layout_height="48dp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewTracks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/progressBarLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressBarStyle" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutFailure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_margin="32dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_warning"
+                android:tint="@color/colorMain"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/msg_session_complete"
+                android:fontFamily="sans-serif-light"
+                android:textSize="14sp"
+                android:layout_margin="16dp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/buttonResignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:background="@drawable/button_reload_drawable"
+                android:textAllCaps="true"
+                android:text="Переавторизоваться"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>

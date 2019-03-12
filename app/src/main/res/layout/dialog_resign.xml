@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorMain"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center"
+        android:layout_margin="24dp"
+        android:src="@drawable/vk"
+        android:tint="@android:color/white" />
+
+    <EditText
+        android:id="@+id/editTextLogin"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:hint="Телефон или email" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        style="@style/EditTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:hint="Пароль"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Войти" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">VMusic</string>
+    <string name="menu_my_music">Моя музыка</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_playlists">Плейлисты</string>
+    <string name="menu_music">Музыка</string>
+    <string name="menu_auth">Авторизация</string>
+    <string name="title_music">Музыка</string>
+    <string name="title_auth">Авторизация</string>
+    <string name="hint_search">Поиск</string>
+    <string name="msg_clear_cache_success">Сохраненные аудиозаписи успешно удалены с устройства</string>
+    <string name="msg_clear_cache_question">Вы точно хотите очистить кэш приложения?  Все сохраненные аудиозаписи будут удалены с устройства</string>
+    <string name="msg_exit_question">Вы точно хотите выйти из аккаунта?  Все сохраненные аудиозаписи будут удалены с устройства</string>
+    <string name="msg_permission_denied_download">Разрешение на получение доступа к памяти устройства отклонено. Аудиозапись не будет загружена</string>
+    <string name="tab_all_music">Вся музыка</string>
+    <string name="tab_downloaded_music">Скачанная</string>
+    <string name="label_enter_captcha">Введите текст с картинки</string>
+    <string name="label_button_send">Отправить</string>
+    <string name="hint_edit_text_captcha">Капча</string>
+    <string name="title_settings">Настройки</string>
+    <string name="label_clear_cache">Очистить кэш</string>
+    <string name="label_contact_developers">Связаться с разработчиками</string>
+    <string name="label_website">Перейти на сайт разработчиков</string>
+    <string name="label_politics">Политика конфиденциальности</string>
+    <string name="label_exit">Выход</string>
+    <string name="log_download_before_auth">Попытка скачать музыку без авторизации</string>
+    <string name="log_auth_failed">Ошибка при авторизации</string>
+    <string name="log_auth_success">Успшеная авторизация</string>
+    <string name="log_search_before_auth">Поиск до авторизации</string>
+    <string name="log_search_after_auth">Поиск после авторизации</string>
+    <string name="log_download_track">Скачивание трека</string>
+    <string name="log_play_track">Воспроизведение трека</string>
+    <string name="log_logout">Выход из аккаунта</string>
+    <string name="msg_session_complete">Текущая сессия была завершена. \n Для продолжения использования поиска аудиозаписей вы можете переавторизоваться, не выходя из текущего аккаунта. \n Также вы можете продолжать прослушивать ваши сохраненные треки.</string>
+</resources>

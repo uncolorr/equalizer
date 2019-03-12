@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bigPlayerPanel"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clickable="true"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    android:focusable="true">
+
+
+    <ImageButton
+        android:id="@+id/imageButtonHide"
+        android:layout_width="48dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:padding="10dp"
+        android:tint="@color/colorMain"
+        android:background="@android:color/transparent"
+        android:src="@drawable/down"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayoutPlayerPanels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="8dp">
+
+        <com.sap.uncolor.equalizer.widgets.SquareImageView
+            android:id="@+id/imageViewMusicPlate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/album_default" />
+
+    </android.support.v7.widget.CardView>
+
+
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="8dp"
+        android:theme="@style/SeekBarStyle"
+        android:progressDrawable="@drawable/seek_bar_progress"
+        android:thumb="@drawable/seek_bar_thumb"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewCurrentPosition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            tools:text="0:00"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorMain"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/textViewDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="58dp"
+            android:textAlignment="textEnd"
+            android:fontFamily="sans-serif"
+            tools:text="3:44"
+            android:textColor="@color/colorMain"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textViewPlayerSongTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        android:textAlignment="center"
+        android:singleLine="true"
+        android:text="-"/>
+
+    <TextView
+        android:id="@+id/textViewPlayerArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textColor="@color/colorMain"
+        android:text="-"/>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButtonPlayerPrevious"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="centerCrop"
+            android:padding="2dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/previous"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonPlayerPlay"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:padding="2dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/play"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonPlayerNext"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="20dp"
+            android:scaleType="centerCrop"
+            android:padding="2dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/next"/>
+
+    </LinearLayout>
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageButtonShuffle"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:tint="@color/colorMain"
+            android:background="@android:color/white"
+            android:src="@drawable/ic_shuffle" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonRepeat"
+            android:layout_width="40dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_repeat"
+            android:tint="@color/colorMain"
+            android:background="@android:color/white"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorMain">#4F78A3</color>
+    <color name="colorMainLight">#334F78A3</color>
+    <color name="colorAuthActionBar">#4A76A8</color>
+    <color name="colorGreyLight">#D8D8D8</color>
+    <color name="colorSettingsBackground">#F1F1F1</color>
+    <color name="colorEqualizerDisabled">#c8d5db</color>
+</resources>

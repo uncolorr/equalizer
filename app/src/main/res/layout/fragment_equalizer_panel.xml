@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:focusable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/imageButtonPreviousPreset"
+            android:layout_width="48dp"
+            android:layout_height="44dp"
+            android:layout_margin="24dp"
+            android:src="@drawable/play"
+            android:rotation="180"
+            android:tint="@color/colorMain"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/textViewPresetName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            tools:text="Rock"
+            android:textColor="@color/colorMain"
+            android:singleLine="true"
+            android:textSize="20sp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonNextPreset"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="24dp"
+            android:src="@drawable/play"
+            android:tint="@color/colorMain"
+            android:background="@android:color/transparent"
+            android:scaleType="centerCrop"/>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="160dp"
+        android:layout_height="128dp"
+        android:layout_margin="12dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/imageViewPresetIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/album_default"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/textView60hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorMain"
+                    android:layout_marginTop="4dp"
+                    android:text="0dB"/>
+
+                <com.sap.uncolor.equalizer.widgets.VerticalSeekBar
+                    android:id="@+id/seekBar60hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:theme="@style/SeekBarStyle"
+                    android:progressDrawable="@drawable/seek_bar_progress"
+                    android:thumb="@drawable/seek_bar_thumb"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@color/colorMain"
+                    android:text="60HZ"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView230hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorMain"
+                    android:layout_marginTop="4dp"
+                    android:text="0dB"/>
+
+                <com.sap.uncolor.equalizer.widgets.VerticalSeekBar
+                    android:id="@+id/seekBar230hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:theme="@style/SeekBarStyle"
+                    android:progressDrawable="@drawable/seek_bar_progress"
+                    android:thumb="@drawable/seek_bar_thumb"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorMain"
+                    android:layout_marginBottom="4dp"
+                    android:text="230HZ"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView910hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorMain"
+                    android:text="0dB"/>
+
+                <com.sap.uncolor.equalizer.widgets.VerticalSeekBar
+                    android:id="@+id/seekBar910hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:theme="@style/SeekBarStyle"
+                    android:progressDrawable="@drawable/seek_bar_progress"
+                    android:thumb="@drawable/seek_bar_thumb"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorMain"
+                    android:layout_marginBottom="4dp"
+                    android:text="910HZ"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3600hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorMain"
+                    android:text="0dB"/>
+
+                <com.sap.uncolor.equalizer.widgets.VerticalSeekBar
+                    android:id="@+id/seekBar3600hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:theme="@style/SeekBarStyle"
+                    android:progressDrawable="@drawable/seek_bar_progress"
+                    android:thumb="@drawable/seek_bar_thumb"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@color/colorMain"
+                    android:text="3.6kHZ"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView14000hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colorMain"
+                    android:text="0dB"/>
+
+                <com.sap.uncolor.equalizer.widgets.VerticalSeekBar
+                    android:id="@+id/seekBar14000hz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="center"
+                    android:theme="@style/SeekBarStyle"
+                    android:progressDrawable="@drawable/seek_bar_progress"
+                    android:thumb="@drawable/seek_bar_thumb"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@color/colorMain"
+                    android:text="14kHZ"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/imageButtonTurnEqualizer"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="12dp"
+        android:layout_gravity="center"
+        android:src="@drawable/turn_button"
+        android:background="@android:color/transparent"
+        android:tint="@color/colorMain"
+        android:scaleType="centerCrop"/>
+
+
+
+</LinearLayout>
