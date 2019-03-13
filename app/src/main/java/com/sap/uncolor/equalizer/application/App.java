@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.google.android.gms.ads.MobileAds;
 import com.orhanobut.hawk.Hawk;
 import com.sap.uncolor.equalizer.Apis.Api;
 
@@ -24,6 +25,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        MobileAds.initialize(this, "ca-app-pub-1541225587417986~4087892749");
         Hawk.init(this).build();
         Api.init();
         Realm.init(this);
@@ -58,7 +60,6 @@ public class App extends Application {
     public static String getToken(){
         return Hawk.get(APP_PREFERENCES_TOKEN);
     }
-
 
     public static void logOut() {
         Hawk.delete(APP_PREFERENCES_TOKEN);

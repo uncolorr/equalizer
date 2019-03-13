@@ -2,6 +2,7 @@ package com.sap.uncolor.equalizer.services.download;
 
 import android.media.audiofx.Equalizer;
 
+import com.sap.uncolor.equalizer.R;
 import com.sap.uncolor.equalizer.application.App;
 
 import java.util.ArrayList;
@@ -9,11 +10,38 @@ import java.util.List;
 
 public class EqualizerController {
 
+
     private int audioSessionId;
 
     private Equalizer equalizer;
 
     private short currentPresetIndex = 0;
+
+    public static int getImageForPreset(short preset){
+        switch (preset){
+            case 0:
+                return R.drawable.normal;
+            case 1:
+                return R.drawable.classical;
+            case 2:
+                return R.drawable.dance;
+            case 3:
+                return R.drawable.flat;
+            case 4:
+                return R.drawable.folk;
+            case 5:
+                return R.drawable.heavy_metal;
+            case 6:
+                return R.drawable.hip_hop;
+            case 7:
+                return R.drawable.jazz;
+            case 8:
+                return R.drawable.pop;
+            case 9:
+                return R.drawable.rock;
+        }
+        return R.drawable.album_default;
+    }
 
     public EqualizerController(int audioSessionId) {
         App.Log("Equalizer controller created");

@@ -8,6 +8,7 @@ import com.sap.uncolor.equalizer.Apis.Api;
 import com.sap.uncolor.equalizer.Apis.ApiResponse;
 import com.sap.uncolor.equalizer.Apis.request_bodies.GetVkMusicBody;
 import com.sap.uncolor.equalizer.Apis.request_bodies.SearchVkMusicBody;
+import com.sap.uncolor.equalizer.Apis.response_models.AuthResponseModel;
 import com.sap.uncolor.equalizer.Apis.response_models.VKMusicResponseModel;
 import com.sap.uncolor.equalizer.Apis.response_models.album_image_model.AlbumImageResponseModel;
 import com.sap.uncolor.equalizer.Apis.response_models.album_image_model.ImageInfo;
@@ -58,6 +59,36 @@ public class MusicFragmentPresenter implements MusicFragmentContract.Presenter, 
         view.removeLoadMoreProgress();
     }
 
+
+    @Override
+    public void onSignInButtonClick(String login, String password) {
+        view.showProcess();
+        Api.getSource().login(login, password).enqueue(ApiResponse.getCallback(getAuthCallback(),
+                this));
+    }
+
+    private void rememberAuth(String token) {
+        App.saveToken(token);
+    }
+
+    private ApiResponse.ApiResponseListener<AuthResponseModel> getAuthCallback() {
+        return new ApiResponse.ApiResponseListener<AuthResponseModel>() {
+            @Override
+            public void onResponse(AuthResponseModel result) {
+                view.hideProcess();
+                if(result.getToken() == null){
+                    view.showErrorMessage();
+                }
+                else {
+                    rememberAuth(result.getToken());
+                    view.hideReSignInDialog();
+                    view.hideFailureMessage();
+                    onLoadMusic(new GetVkMusicBody(), true);
+                }
+            }
+        };
+    }
+
     @Override
     public void onDeleteTrack(BaseMusic music, int position) {
         view.deleteMusic((VkMusic) music, position);
@@ -83,6 +114,9 @@ public class MusicFragmentPresenter implements MusicFragmentContract.Presenter, 
     @Override
     public void onLoadMusic(GetVkMusicBody getVkMusicBody, boolean isRefreshing) {
         if (App.isAuth()) {
+            if (isRefreshing){
+                view.clearList();
+            }
             view.showProgress();
             view.addLoadMoreProgress();
             Api.getSource().getVkMusic(App.getToken(),
@@ -119,7 +153,7 @@ public class MusicFragmentPresenter implements MusicFragmentContract.Presenter, 
     public void onSearchMusic(SearchVkMusicBody searchVkMusicBody, int mode, boolean withCaptcha, boolean isRefreshing) {
         App.Log("Search offset: " + searchVkMusicBody.getOffset());
         if (App.isAuth()) {
-            view.showProgress();
+
             switch (mode) {
                 case MusicAdapter.MODE_CACHE:
                     RealmResults<VkMusic> results = realm.where(VkMusic.class)
@@ -130,10 +164,14 @@ public class MusicFragmentPresenter implements MusicFragmentContract.Presenter, 
                             .endGroup()
                             .findAll();
                     view.setMusicItems(results, true);
-                    view.hideProgress();
+                    //view.hideProgress();
                     break;
                 case MusicAdapter.MODE_ALL_MUSIC:
                     view.addLoadMoreProgress();
+                    if (isRefreshing) {
+                        view.clearList();
+                    }
+                    view.showProgress();
                     if (withCaptcha) {
                         Api.getSource().searchVkMusicWithCaptcha(
                                 App.getToken(),

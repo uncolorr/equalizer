@@ -58,6 +58,9 @@ public class DownloadService extends IntentService implements ApiResponse.ApiFai
     @Override
     protected void onHandleIntent(Intent intent) {
         App.Log("onHandleIntent service");
+        if(music == null){
+            return;
+        }
         File outputFile = new File(Environment
                         .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
                         music.getArtist() + " - " + music.getTitle() + ".mp3");

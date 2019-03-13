@@ -32,6 +32,8 @@ public interface MusicFragmentContract {
         void hideProcess();
         void showErrorMessage();
         void showProcess();
+
+        void clearList();
     }
 
     interface Presenter {
@@ -42,6 +44,7 @@ public interface MusicFragmentContract {
         void onLoadMusic(GetVkMusicBody requestBody, boolean isRefreshing);
         void onSearchMusic(SearchVkMusicBody requestBody, int mode, boolean withCaptcha, boolean isRefreshing);
 
+        void onSignInButtonClick(String login, String password);
         void onFindAlbumImageUrl(BaseMusic music, int adapterPosition);
        /* void onLoadMusic(GetVkMusicBody requestBody, boolean isRefreshing);
         void onSearchMusic(SearchVkMusicBody requestBody, int mode, boolean withCaptcha, boolean isRefreshing);

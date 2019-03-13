@@ -7,6 +7,7 @@
     <EditText
         android:id="@+id/editTextSearch"
         android:hint="Поиск"
+        android:singleLine="true"
         android:layout_width="match_parent"
         android:layout_height="48dp" />
 

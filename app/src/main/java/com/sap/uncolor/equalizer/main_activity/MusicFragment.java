@@ -127,6 +127,8 @@ public class MusicFragment extends Fragment implements MusicFragmentContract.Vie
 
     private void initFragment(){
         App.Log("init fragment music");
+        resignInDialog = new ResignInDialog(getContext());
+        resignInDialog.setOnSignInClickListener(getOnResignInClickListener());
         presenter = new MusicFragmentPresenter(getContext(), this);
         searchVkMusicBody = new SearchVkMusicBody();
         getVkMusicBody = new GetVkMusicBody();
@@ -145,7 +147,6 @@ public class MusicFragment extends Fragment implements MusicFragmentContract.Vie
             case MODE_ONLINE_TRACKS:
                 GetVkMusicBody getVkMusicBody = new GetVkMusicBody();
                 presenter.onLoadMusic(getVkMusicBody, true);
-                //upload from server
                 break;
 
             case MODE_OFFLINE_TRACKS:
@@ -157,6 +158,16 @@ public class MusicFragment extends Fragment implements MusicFragmentContract.Vie
                 break;
         }
         searchRunnable = getSearchRunnable();
+    }
+
+    private View.OnClickListener getOnResignInClickListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onSignInButtonClick(resignInDialog.getLogin(),
+                        resignInDialog.getPassword());
+            }
+        };
     }
 
 
@@ -183,9 +194,12 @@ public class MusicFragment extends Fragment implements MusicFragmentContract.Vie
 
     @Override
     public void showProcess() {
-        if(adapter.getItemCount() == 0) {
-            dialogProcessing.show();
-        }
+        dialogProcessing.show();
+    }
+
+    @Override
+    public void clearList() {
+        adapter.clear();
     }
 
     @Override
@@ -313,7 +327,9 @@ public class MusicFragment extends Fragment implements MusicFragmentContract.Vie
 
     @Override
     public void showProgress() {
-        progressBarLoading.setVisibility(View.VISIBLE);
+        if(adapter.getItemCount() == 0) {
+            progressBarLoading.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

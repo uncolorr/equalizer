@@ -9,6 +9,8 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.sap.uncolor.equalizer.application.App;
+import com.sap.uncolor.equalizer.services.download.EqualizerController;
 import com.sap.uncolor.equalizer.utils.TextFormatter;
 import com.sap.uncolor.equalizer.widgets.VerticalSeekBar;
 
@@ -86,7 +89,7 @@ public class EqualizerPanelFragment extends Fragment {
 
     private EqualizerPanelChangeListener equalizerPanelChangeListener;
 
-    private int currentPresetIndex;
+    private short currentPresetIndex;
 
     private List<String> presetsNames = new ArrayList<>();
 
@@ -113,6 +116,7 @@ public class EqualizerPanelFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_equalizer_panel, container, false);
         ButterKnife.bind(this, view);
         onCreateViewCallback.onCreateView();
+
         return view;
     }
 
@@ -173,6 +177,7 @@ public class EqualizerPanelFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        setImagePresetIcon();
         App.Log("current preset index in onResume: " + currentPresetIndex);
 
     }
@@ -199,6 +204,7 @@ public class EqualizerPanelFragment extends Fragment {
             imageButtonNextPreset.setColorFilter(color);
             imageButtonPreviousPreset.setColorFilter(color);
         }
+        setImagePresetIcon();
     }
 
     public void setPresetsNames(List<String> presetsNames) {
@@ -208,6 +214,7 @@ public class EqualizerPanelFragment extends Fragment {
             currentPresetIndex = 0;
             textViewPresetName.setText(presetsNames.get(currentPresetIndex));
         }
+
     }
 
     private String getCurrentPresetName(){
@@ -261,14 +268,19 @@ public class EqualizerPanelFragment extends Fragment {
         }
         if(currentPresetIndex == presetsNames.size() - 1){
             currentPresetIndex = 0;
-            textViewPresetName.setText(presetsNames.get(currentPresetIndex));
         }
         else {
             currentPresetIndex++;
-            textViewPresetName.setText(presetsNames.get(currentPresetIndex));
         }
-        equalizerPanelChangeListener.onPresetChanged((short) currentPresetIndex);
+        textViewPresetName.setText(presetsNames.get(currentPresetIndex));
+        setImagePresetIcon();
+        equalizerPanelChangeListener.onPresetChanged(currentPresetIndex);
         App.Log("current preset index: " + currentPresetIndex);
+    }
+
+    private void setImagePresetIcon(){
+        imageViewPresetIcon.setImageResource(EqualizerController.getImageForPreset(currentPresetIndex));
+        animatePresetIcon();
     }
 
     @OnClick(R.id.imageButtonPreviousPreset)
@@ -277,28 +289,27 @@ public class EqualizerPanelFragment extends Fragment {
             return;
         }
         if(currentPresetIndex == 0){
-            currentPresetIndex = presetsNames.size() - 1;
-            textViewPresetName.setText(presetsNames.get(currentPresetIndex));
+            currentPresetIndex = (short) (presetsNames.size() - 1);
         }
         else {
             currentPresetIndex--;
-            textViewPresetName.setText(presetsNames.get(currentPresetIndex));
         }
-        equalizerPanelChangeListener.onPresetChanged((short) currentPresetIndex);
+        textViewPresetName.setText(presetsNames.get(currentPresetIndex));
+        setImagePresetIcon();
+        equalizerPanelChangeListener.onPresetChanged(currentPresetIndex);
+
         App.Log("current preset index: " + currentPresetIndex);
     }
 
     @OnClick(R.id.imageButtonTurnEqualizer)
     void onTurnEqualizerButtonClick(){
-        App.Log("current preset index(0): " + currentPresetIndex);
         isEqualizerEnabled = !isEqualizerEnabled;
         equalizerPanelChangeListener.onTurnButtonStateChanged(isEqualizerEnabled);
-        App.Log("current preset index(1): " + currentPresetIndex);
         if(isEqualizerEnabled) {
-            equalizerPanelChangeListener.onPresetChanged((short) currentPresetIndex);
+            equalizerPanelChangeListener.onPresetChanged(currentPresetIndex);
         }
         bindEqualizerEnabledState();
-        App.Log("current preset index(2): " + currentPresetIndex);
+
     }
 
 
@@ -309,13 +320,6 @@ public class EqualizerPanelFragment extends Fragment {
         animateProgression(seekBar910hz, bandLevels[2] + maxLevelFrequency);
         animateProgression(seekBar3600hz, bandLevels[3] + maxLevelFrequency);
         animateProgression(seekBar14000hz, bandLevels[4] + maxLevelFrequency);
-
-       // App.Log(Integer.toString(bandLevels[0] + maxLevelFrequency));
-      //  App.Log(Integer.toString(bandLevels[1] + maxLevelFrequency));
-      //  App.Log(Integer.toString(bandLevels[2] + maxLevelFrequency));
-      //  App.Log(Integer.toString(bandLevels[3] + maxLevelFrequency));
-      //  App.Log(Integer.toString(bandLevels[4] + maxLevelFrequency));
-     //   App.Log(" ");
     }
 
     private void animateProgression(SeekBar seekBar, int progress) {
@@ -324,6 +328,11 @@ public class EqualizerPanelFragment extends Fragment {
         animation.setInterpolator(new DecelerateInterpolator());
         animation.start();
         seekBar.clearAnimation();
+    }
+
+    private void animatePresetIcon() {
+        Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulse);
+        imageViewPresetIcon.startAnimation(pulse);
     }
 
     public void setCurrentPreset(short currentPreset) {

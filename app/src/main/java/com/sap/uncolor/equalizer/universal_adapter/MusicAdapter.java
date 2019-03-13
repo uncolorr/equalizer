@@ -155,8 +155,10 @@ public class MusicAdapter<T extends BaseMusic> extends RecyclerView.Adapter {
 
     public void setAlbumImageUrl(String url, int position){
         if(mode == MODE_ALL_MUSIC && !items.isEmpty()) {
-            items.get(position).setAlbumImageUrl(url);
-            notifyItemChanged(position);
+            if(position < items.size()) {
+                items.get(position).setAlbumImageUrl(url);
+                notifyItemChanged(position);
+            }
         }
     }
 

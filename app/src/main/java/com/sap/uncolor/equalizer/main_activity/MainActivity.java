@@ -20,6 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.sap.uncolor.equalizer.EqualizerPanelChangeListener;
 import com.sap.uncolor.equalizer.EqualizerPanelFragment;
@@ -74,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.progressBarMusic)
     ProgressBar progressBarMusic;
+
+    @BindView(R.id.adView)
+    AdView adView;
 
     private ViewPagerMusicFragmentAdapter adapter;
 
@@ -132,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
         });
         playerPanelFragment.setPlayerPanelChangeListener(getPlayPanelChangeListener());
         ButterKnife.bind(this);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
         sheetBehavior = BottomSheetBehavior.from(bigPlayerPanel);
         sheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
